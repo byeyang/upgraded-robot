@@ -2,9 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>我的笔记</title>
 </head>
+<style>
+    #fit0_1{
+    width: 674px;
+    margin: 0 0 30px 0;
+    padding: 10px 10px 20px;
+    border: 1px solid #e6e6e6;
+    min-height: 8px;
+    resize: none;
+    line-height: 24px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: '微软雅黑', Helvetica, sans-serif;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+    #fit0_2{
+    width: 674px;
+    padding: 10px 10px 20px;
+    min-height: 8px;
+    resize: none;
+    border: 1px solid #e6e6e6;
+    line-height: 24px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: '微软雅黑', Helvetica, sans-serif;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+  #fit1{
+    width: 674px;
+    margin: 0 0 30px 0;
+    padding: 10px 10px 20px;
+    border: 1px solid #e6e6e6;
+    min-height: 88px;
+    resize: none;
+    line-height: 24px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: '微软雅黑', Helvetica, sans-serif;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  .hide{
+    visibility: hidden;
+    position: absolute;
+    z-index: -100;
+  }
+  #fit2{
+    width: 674px;
+    padding: 10px 10px 20px;
+    min-height: 88px;
+    resize: none;
+    border: 1px solid #e6e6e6;
+    line-height: 24px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: '微软雅黑', Helvetica, sans-serif;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+</style>
 <body>
-
+<div>
+    <input style="height:30px;width:674px" type="text" name="LastName"><br>
+    <br>
+    <pre id="fit1" class="hide"></pre>
+    <textarea id="fit2"></textarea>
+</div>
+<script>
+  //高度自适应
+  document.onkeydown = function () {
+    var textarea = document.getElementById('fit2')
+    var pre = document.getElementById('fit1');
+    pre.innerHTML = textarea.value;
+    var realHeight = pre.offsetHeight;//offsetHeight = height + padding + border
+    if(realHeight > 150) textarea.style.height = (realHeight + 24 -32) + 'px'; //加24为一行的高度，减32为padding和border
+    else textarea.style.height = realHeight - 32 + 'px';}
+</script>
 </body>
+
 </html>
